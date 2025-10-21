@@ -1,0 +1,31 @@
+#include <iostream> 
+using namespace std; 
+class Student { 
+private: 
+    string name; 
+    int age; 
+public: 
+    void setData(string n, int a) { 
+        name = n; 
+        age = a; 
+    } 
+    void display() { 
+        cout << "Name: " << name << ", Age: " << age << endl;
+}
+};
+int main() { 
+    Student s1; 
+    s1.setData("Alice", 20); 
+    s1.display(); 
+    Student *ptr; 
+    ptr = &s1;    
+    cout << "\nAccessing through pointer:\n"; 
+    ptr->display(); 
+    Student *ptr2 = new Student(); 
+    ptr2->setData("Bob", 22); 
+    cout << "\nDynamically created object:\n"; 
+    ptr2->display(); 
+    // Free memory 
+    delete ptr2; 
+    return 0; 
+} 
